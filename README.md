@@ -1,5 +1,6 @@
-# project title
-  project description</br>
+  # project title
+  [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)</br>
+  project description
 
   ## Table of Contents
   * [Installation](#installation)
@@ -16,18 +17,32 @@
   ![project title](./image.png "project title")
 
   ## Contributions<a name="contributions"></a>
-  [undefined](https://github.com/undefined)
-  message
+  Special thanks to the following contributors:
+
+  [a](https://github.com/a)</br>
+
+  [b](https://github.com/b)</br>
+
+  [c](https://github.com/c)</br>
+
+  [d](https://github.com/d)</br>
+
+  [e](https://github.com/e)</br>
+
+  [f](https://github.com/f)</br>
+
+
+  a message crediting my contributors
 
   Made by [username](https://github.com/username)
 
 
-## License<a name="license"></a>
-This application uses the BSD 3-Clause License. For more information, regarding usage, please visit [this link]("https://opensource.org/licenses/BSD-3-Clause")
+  ## License<a name="license"></a>
+  This application uses the MIT License. For more information regarding usage, please visit [this link]("https://opensource.org/licenses/MIT")
 
 
   ## Tests<a name="tests"></a>
-  undefined
+  tests conducted
 
   ## Questions?<a name="questions"></a>
-  Contact repository author username at undefined
+  Contact repository author username at email@email.com

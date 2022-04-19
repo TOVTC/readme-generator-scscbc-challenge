@@ -1,3 +1,20 @@
+const dummy = {
+    username: "username",
+    title: "project title",
+    description: "project description",
+    install: "installation instructions",
+    deployedLink: "link.com",
+    imagePath: "./image.png",
+    credit: "a message crediting my contributors",
+    confirmCreditLink: true,
+    creditGitHub: "a b c d e f",
+    license: "MIT",
+    confirmTest: true,
+    test: "tests conducted",
+    confirmContact: true,
+    contact: "email@email.com"
+}
+
 // TODO: Include packages needed for this application
 const inquirer = require("inquirer");
 const fs = require("fs");
@@ -38,7 +55,7 @@ const questions = [
     {
         type: "input",
         name: "credit",
-        message: "Please enter a short message crediting your contributors",
+        message: "Please enter a short message crediting your contributors.",
     },
     {
         type: "confirm",
@@ -49,7 +66,7 @@ const questions = [
     {
         type: "input",
         name: "creditGitHub",
-        message: "What are your contributor's GitHub usernames? (Separate each new entry with a comma)",
+        message: "What are your contributor's GitHub usernames? (Separate each new entry with a space)",
         when: ({confirmCreditLink}) => {
             if (confirmCreditLink) {
                 return true;
@@ -58,7 +75,7 @@ const questions = [
             }
         },
     },
-    // use split to turn this into an array and write a for loop to generate elements in the final markdown
+
     {
         type: "list",
         name: "license",
@@ -127,17 +144,18 @@ function writeToFile(fileName, data) {
     // );
 }
 
-// TODO: Create a function to initialize app
-function init() {
-    return inquirer.prompt(questions);
-}
+// // TODO: Create a function to initialize app
+// function init() {
+//     return inquirer.prompt(questions);
+// }
 
-// Function call to initialize app
-init()
-    .then(data => {
-        console.log(generateMarkdown(data));
-    });
+// // Function call to initialize app
+// init()
+//     .then(data => {
+//         console.log(generateMarkdown(data));
+//     });
 
+console.log(generateMarkdown(dummy));
 
 // - pseudocode project
 // - collect necessary functions (NPM libraries and README questions)

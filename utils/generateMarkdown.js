@@ -86,23 +86,23 @@ const licenseObj = {
     }
 }
 
-//conditionally create links to GitHub accounts
 //conditionally create test information
 //conditionally create email contact line
-//[![License: LGPL v3](https://img.shields.io/badge/License-LGPL_v3-blue.svg)](https://www.gnu.org/licenses/lgpl-3.0)
 //conditionally create table of contents indices
 
-// TODO: Create a function that returns a license badge based on which license is passed in
-// If there is no license, return an empty string
-function renderLicenseBadge(license) {}
-
-// TODO: Create a function that returns the license link
-// If there is no license, return an empty string
-function renderLicenseLink(license) {}
+function renderLicenseBadge(license) {
+  if (license ==="None") {
+    return "";
+  } else {
+    return `
+    [![License: ${license}](${licenseObj[license].badge})](${licenseObj[license].link})</br>
+    `
+  }
+}
 
 // TODO: Create a function that returns the license section of README
 // If there is no license, return an empty string
-function renderLicenseSection(licenseObj, license) {
+function renderLicenseSection(license) {
   if (license === "None") {
     return "";
   } else {
@@ -113,10 +113,29 @@ function renderLicenseSection(licenseObj, license) {
   }
 }
 
+function renderContributionsSection(username) {
+  if (!username) {
+    return "";
+  } else {
+  const usernameArray = username.split(" ");//add.trim() somewhere
+  return `Special thanks to the following contributors:</br>
+  ${usernameArray
+    .map(element => {
+    return `
+  [${element}](https://github.com/${element})</br>
+    `;
+  })
+    .join("")}
+  `
+  }
+}
+
 // TODO: Create a function to generate markdown for README
 function generateMarkdown(data) {
-  return `# ${data.title}
-  ${data.description}</br>
+  return `
+  # ${data.title}
+  ${renderLicenseBadge(data.license)}
+  ${data.description}
   
   ## Table of Contents
   * [Installation](#installation)
@@ -133,12 +152,12 @@ function generateMarkdown(data) {
   ![${data.title}](${data.imagePath} "${data.title}")
   
   ## Contributions<a name="contributions"></a>
-  [${data.creditGitHub}](https://github.com/${data.creditGitHub})
+  ${renderContributionsSection(data.creditGitHub)}
   ${data.credit}
   
   Made by [${data.username}](https://github.com/${data.username})
   
-  ${renderLicenseSection(licenseObj, data.license)}
+  ${renderLicenseSection(data.license)}
   
   ## Tests<a name="tests"></a>
   ${data.test}
