@@ -25,8 +25,9 @@
   ## Authors & Acknowledgements<a name="acknowledgements"></a>
   Special thanks to the following contributors:</br>
     [octocat](https://github.com/octocat)</br>
+    [lukas-h](https://github.com/lukas-h)</br>
     
-  A thank you to Lukas for providing licensing information and badges [here](https://gist.github.com/lukas-h/2a5d00690736b4c3a7ba)
+  A thank you to Lukas for providing licensing information and badges [here](https://gist.github.com/lukas-h/2a5d00690736b4c3a7ba).
   
   Made by [TOVTC](https://github.com/TOVTC)
   
@@ -34,4 +35,4 @@
   This application uses the MIT License. For more information regarding usage, please visit [this link]("https://opensource.org/licenses/MIT")
 
   ## Questions?<a name="questions"></a>
-  Contact repository author via email at [veronica.tc.to@outlook.com](mailto:veronica.tc.to@outlook.com)
+  Contact repository author via [GitHub](https://github.com/TOVTC)

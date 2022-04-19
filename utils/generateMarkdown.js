@@ -216,8 +216,8 @@ function renderImage({title, imagePath}){
 function generateMarkdown(data) {
   return `
   # ${data.title}
-  ${data.description}</br>
-  ${renderLicenseBadge(data)}
+  ${renderLicenseBadge(data)}</br>
+  ${data.description}
   
   ## Table of Contents
   ${tocFeatures(data)}
