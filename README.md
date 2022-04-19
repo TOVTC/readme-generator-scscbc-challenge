@@ -1,48 +1,44 @@
-  # project title
-  [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)</br>
-  project description
+  # readme-generator
+  This application generates README files</br>
+  [![License: Mozilla](https://img.shields.io/badge/License-MPL_2.0-brightgreen.svg)](https://opensource.org/licenses/MPL-2.0)</br>
 
   ## Table of Contents
+
   * [Installation](#installation)
-  * [Usage](#usage)
-  * [Contributions](#contributions)
+  * [Usage Information](#usage)
+  * [Authors & Acknowledgements](#credits)
   * [License](#license)
+
+
   * [Contact](#questions)
 
+  ## Features<a name="features"></a>
+  [object Object]
+
   ## Installation Instructions<a name="installation"></a>
-  installation instructions
+  After cloning the repository, enter "node index.js" and answer the prompts to generate a README.
 
   ## Usage Information<a name="usage"></a>
-  [project title]("link.com")
-  ![project title](./image.png "project title")
 
-  ## Contributions<a name="contributions"></a>
-  Special thanks to the following contributors:
+  This template is suitable for most projects.
+  ![readme-generator](./image.png "readme-generator")</br>
 
-  [a](https://github.com/a)</br>
+  ## Authos & Acknowledgements<a name="acknowledgements"></a>
+  Special thanks to the following contributors:</br>
+  [TOVTC](https://github.com/TOVTC)</br>[octocat](https://github.com/octocat)</br>[learnantino](https://github.com/learnantino)</br>
 
-  [b](https://github.com/b)</br>
+  Copyright 2022.
 
-  [c](https://github.com/c)</br>
-
-  [d](https://github.com/d)</br>
-
-  [e](https://github.com/e)</br>
-
-  [f](https://github.com/f)</br>
-
-
-  a message crediting my contributors
-
-  Made by [username](https://github.com/username)
+  Made by [TOVTC](https://github.com/TOVTC)
 
 
   ## License<a name="license"></a>
-  This application uses the MIT License. For more information regarding usage, please visit [this link]("https://opensource.org/licenses/MIT")
+  This application uses the Mozilla Public 2.0 License. For more information regarding usage, please visit [this link]("https://opensource.org/licenses/MPL-2.0")
 
 
-  ## Tests<a name="tests"></a>
-  tests conducted
+
+
+
 
   ## Questions?<a name="questions"></a>
-  Contact repository author username at email@email.com
+  Contact repository author via email at [](mailto:)

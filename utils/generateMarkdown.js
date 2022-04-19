@@ -86,47 +86,129 @@ const licenseObj = {
     }
 }
 
-//conditionally create test information
-//conditionally create email contact line
-//conditionally create table of contents indices
-
-function renderLicenseBadge(license) {
-  if (license ==="None") {
+// TODO: Create a function that returns a license badge based on which license is passed in
+// If there is no license, return an empty string
+function renderLicenseBadge({license}) {
+  if (license === "None") {
     return "";
   } else {
-    return `
-    [![License: ${license}](${licenseObj[license].badge})](${licenseObj[license].link})</br>
-    `
+    return `[![License: ${license}](${licenseObj[license].badge})](${licenseObj[license].link})</br>
+    `;
   }
 }
 
 // TODO: Create a function that returns the license section of README
 // If there is no license, return an empty string
-function renderLicenseSection(license) {
+function renderLicenseSection({license}) {
   if (license === "None") {
     return "";
   } else {
-    return `
-  ## License<a name="license"></a>
+    return `## License<a name="license"></a>
   This application uses the ${licenseObj[license].name} License. For more information regarding usage, please visit [this link]("${licenseObj[license].link}")
     `
   }
 }
 
-function renderContributionsSection(username) {
-  if (!username) {
-    return "";
-  } else {
-  const usernameArray = username.split(" ");//add.trim() somewhere
-  return `Special thanks to the following contributors:</br>
-  ${usernameArray
-    .map(element => {
-    return `
-  [${element}](https://github.com/${element})</br>
+function renderFeatureSection({features}) {
+  if (features) {
+    return `## Features<a name="features"></a>
+  ${features}
     `;
-  })
-    .join("")}
-  `
+  } else {
+    return "";
+  }
+}
+
+function renderCreditsSection({creditGitHub}) {
+  if (creditGitHub) {
+    const usernameArray = creditGitHub.split(" ");
+    return `Special thanks to the following contributors:</br>
+    ${usernameArray
+      .map(element => {
+        element.trim();
+        if (element) {
+          return `[${element}](https://github.com/${element})</br>`
+          ;}
+      })
+      .join("")}
+    `;
+  } else {
+    return "";
+  }
+}
+
+function renderTestSection({test}) {
+  if (test) {
+    return `## Tests<a name="tests"></a>
+    ${test}
+    `;
+  } else {
+    return "";
+  }
+}
+
+function renderContactInformation({username, confirmContact, contact}) {
+  if (confirmContact) {
+    return `via email at [${contact}](mailto:${contact})
+    `;
+  } else {
+    return `via [GitHub](https://github.com/${username})
+    `;
+  }
+}
+
+function renderContributionsSection({contribution}) {
+  if (contribution) {
+    return `## Contributing<a name="contributions"></a>
+    ${contribution}
+    `;
+  } else {
+    return "";
+  }
+}
+
+function tocFeatures({features}) {
+  if (features) {
+    return `* [Features](#features)
+    `;
+  } else {
+    return "";
+  }
+}
+
+function tocTest({test}) {
+  if (test) {
+    return `* [Tests](#tests)
+    `;
+  } else {
+    return "";
+  }
+}
+
+function tocContribute({contribution}) {
+  if (contribution) {
+    return `* [Contributing](#contributions)
+    `;
+  } else {
+    return "";
+  }
+}
+
+function renderLink({title, deployedLink}) {
+  if (deployedLink) {
+    return `[${title}]("${deployedLink}")</br>
+    `;
+  } else {
+    return "";
+  }
+}
+
+function renderImage({title, imagePath}){
+  if (imagePath) {
+    return `![${title}](${imagePath} "${title}")</br>
+    `;
+  } else {
+    return "";
   }
 }
 
@@ -134,36 +216,43 @@ function renderContributionsSection(username) {
 function generateMarkdown(data) {
   return `
   # ${data.title}
-  ${renderLicenseBadge(data.license)}
-  ${data.description}
+  ${data.description}</br>
+  ${renderLicenseBadge(data)}
   
   ## Table of Contents
+  ${tocFeatures(data)}
   * [Installation](#installation)
-  * [Usage](#usage)
-  * [Contributions](#contributions)
+  * [Usage Information](#usage)
+  * [Authors & Acknowledgements](#credits)
   * [License](#license)
+  ${tocTest(data)}
+  ${tocContribute(data)}
   * [Contact](#questions)
   
-  ## Installation Instructions<a name="installation"></a>
+  ${renderFeatureSection(data)}
+  
+  ## Installation <a name="installation"></a>
   ${data.install}
   
   ## Usage Information<a name="usage"></a>
-  [${data.title}]("${data.deployedLink}")
-  ![${data.title}](${data.imagePath} "${data.title}")
+  ${renderLink(data)}
+  ${data.usage}
+  ${renderImage(data)}
   
-  ## Contributions<a name="contributions"></a>
-  ${renderContributionsSection(data.creditGitHub)}
+  ## Authors & Acknowledgements<a name="acknowledgements"></a>
+  ${renderCreditsSection(data)}
   ${data.credit}
   
   Made by [${data.username}](https://github.com/${data.username})
   
-  ${renderLicenseSection(data.license)}
+  ${renderLicenseSection(data)}
   
-  ## Tests<a name="tests"></a>
-  ${data.test}
+  ${renderTestSection(data)}
+
+  ${renderContributionsSection(data)}
   
   ## Questions?<a name="questions"></a>
-  Contact repository author ${data.username} at ${data.contact}
+  Contact repository author ${renderContactInformation(data)}
   `;
 }
 
