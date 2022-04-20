@@ -25,7 +25,7 @@
   ## Usage Information<a name="usage"></a>
   
   This template is suitable for and adaptable to most projects.</br>
-  ![README Generator](./readme-generator.png "README Generator")</br>
+  </br>![README Generator](./readme-generator.png "README Generator")</br>
     
   
   ## Authors & Acknowledgements<a name="credits"></a>
