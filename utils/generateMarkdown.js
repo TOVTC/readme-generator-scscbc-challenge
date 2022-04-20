@@ -169,7 +169,7 @@ function renderLicenseBadge({license}) {
   if (license === "None") {
     return "";
   } else {
-    return `[![License: ${license}](${licenseObj[license].badge})](${licenseObj[license].link})</br>
+    return `[![License: ${license}](${licenseObj[license].badge})](${licenseObj[license].link})</br></br>
     `;
   }
 }
@@ -211,11 +211,21 @@ function renderContributionsSection({contribution}) {
 // conditional contact information preference
 function renderContactInformation({username, confirmContact, contact}) {
   if (confirmContact) {
-    return `via email at [${contact}](mailto:${contact}).
+    return `via email at [${contact}](mailto:${contact}).</br>
     `;
   } else {
-    return `via [GitHub](https://github.com/${username}).
+    return `via [GitHub](https://github.com/${username}).</br>
     `;
+  }
+}
+
+// conditional contact instructions
+function renderInstructions({detail}) {
+  if (detail) {
+    return `${detail}
+    `;
+  } else {
+    return "";
   }
 }
 
@@ -223,7 +233,7 @@ function renderContactInformation({username, confirmContact, contact}) {
 function generateMarkdown(data) {
   return `
   # ${data.title}
-  ${renderLicenseBadge(data)}</br>
+  ${renderLicenseBadge(data)}
   ${data.description}
   
   ## Table of Contents
@@ -243,7 +253,7 @@ function generateMarkdown(data) {
   
   ## Usage Information<a name="usage"></a>
   ${renderLink(data)}
-  ${data.usage}
+  ${data.usage}</br>
   ${renderImage(data)}
   
   ## Authors & Acknowledgements<a name="credits"></a>
@@ -259,8 +269,8 @@ function generateMarkdown(data) {
   ${renderContributionsSection(data)}
   
   ## Questions?<a name="questions"></a>
-  Contact repository author ${renderContactInformation(data)}</br>
-  ${data.detail}
+  Contact repository author ${renderContactInformation(data)}
+  ${renderInstructions(data)}
   `;
 }
 
