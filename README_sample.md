@@ -1,7 +1,6 @@
 
   # README Generator
-  [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)</br>
-    </br>
+  [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)</br></br>
   This application uses Node.js to generate README.md files.
   
   ## Table of Contents
