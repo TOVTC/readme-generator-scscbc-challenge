@@ -96,6 +96,15 @@ function tocFeatures({features}) {
   }
 }
 
+function tocLicense({license}) {
+  if (license !== "None") {
+    return `* [License](#license)
+    `;
+  } else {
+    return "";
+  }
+}
+
 function tocTest({test}) {
   if (test) {
     return `* [Tests](#tests)
@@ -241,7 +250,7 @@ function generateMarkdown(data) {
   * [Installation](#installation)
   * [Usage Information](#usage)
   * [Authors & Acknowledgements](#credits)
-  * [License](#license)
+  ${tocLicense(data)}
   ${tocTest(data)}
   ${tocContribute(data)}
   * [Contact](#questions)
