@@ -24,7 +24,7 @@
     
   ## Authors & Acknowledgements<a name="credits"></a>
   Special thanks to the following:</br>
-    [lukas-h](https://github.com/lukas-h)</br>[octocat](https://github.com/octocat)</br>
+    [lukas-h](https://github.com/lukas-h)</br>
     
   A thank you to Lukas for providing licensing information and badges [here](https://gist.github.com/lukas-h/2a5d00690736b4c3a7ba).
   
