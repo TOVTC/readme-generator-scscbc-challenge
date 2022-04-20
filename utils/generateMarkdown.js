@@ -219,6 +219,16 @@ function renderContactInformation({username, confirmContact, contact}) {
   }
 }
 
+// conditional contact instructions
+function renderInstructions({detail}) {
+  if (detail) {
+    return `${detail}
+    `;
+  } else {
+    return "";
+  }
+}
+
 // TODO: Create a function to generate markdown for README
 function generateMarkdown(data) {
   return `
@@ -242,7 +252,7 @@ function generateMarkdown(data) {
   ${data.install}
   
   ## Usage Information<a name="usage"></a>
-  ${renderLink(data)}</br>
+  ${renderLink(data)}
   ${data.usage}</br>
   ${renderImage(data)}
   
@@ -260,7 +270,7 @@ function generateMarkdown(data) {
   
   ## Questions?<a name="questions"></a>
   Contact repository author ${renderContactInformation(data)}</br>
-  ${data.detail}
+  ${renderInstructions(data)}
   `;
 }
 
