@@ -123,12 +123,12 @@ const questions = [
         type: "confirm",
         name: "confirmCreditLink",
         message: "Would you like to link to contributors' GitHub accounts?",
-        default: true
+        default: false
     },
     {
         type: "input",
         name: "creditGitHub",
-        message: "What are your contributor's GitHub usernames? (Separate each new entry with a space)",
+        message: "What are your contributors' GitHub usernames? (Separate each new entry with a space)",
         validate: gitHub => {
             if (gitHub) {
                 return true;
@@ -229,6 +229,32 @@ const questions = [
                 return false;
             }
         }
+    },
+    {
+        type: "confirm",
+        name: "confirmDetails",
+        message: "Would you like to include any additional details regarding how to contact you?",
+        default: false
+    },
+    {
+        type: "input",
+        name: "detail",
+        message: "Please enter additional contact instructions.",
+        validate: instructions => {
+            if (instructions) {
+                return true;
+            } else {
+                console.log("this is a required field");
+                return false;
+            }
+        },
+        when: ({confirmDetails}) => {
+            if (confirmDetails) {
+                return true;
+            } else {
+                return false;
+            }
+        }
     }
 ];
 
@@ -256,11 +282,11 @@ function init() {
 // Function call to initialize app
 init()
     .then(data => {
-        console.log(generateMarkdown(data))
+        console.log(generateMarkdown(data));
         return generateMarkdown(data);
     })
     .then(pageMD => {
-        return writeToFile(pageMD)
+        return writeToFile(pageMD);
     })
     .catch(err => {
         console.log(err);

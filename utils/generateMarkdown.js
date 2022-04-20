@@ -86,87 +86,7 @@ const licenseObj = {
     }
 }
 
-// TODO: Create a function that returns a license badge based on which license is passed in
-// If there is no license, return an empty string
-function renderLicenseBadge({license}) {
-  if (license === "None") {
-    return "";
-  } else {
-    return `[![License: ${license}](${licenseObj[license].badge})](${licenseObj[license].link})</br>
-    `;
-  }
-}
-
-// TODO: Create a function that returns the license section of README
-// If there is no license, return an empty string
-function renderLicenseSection({license}) {
-  if (license === "None") {
-    return "";
-  } else {
-    return `## License<a name="license"></a>
-  This application uses the ${licenseObj[license].name} License. For more information regarding usage, please visit [this link]("${licenseObj[license].link}")
-    `
-  }
-}
-
-function renderFeatureSection({features}) {
-  if (features) {
-    return `## Features<a name="features"></a>
-  ${features}
-    `;
-  } else {
-    return "";
-  }
-}
-
-function renderCreditsSection({creditGitHub}) {
-  if (creditGitHub) {
-    const usernameArray = creditGitHub.split(" ");
-    return `Special thanks to the following contributors:</br>
-    ${usernameArray
-      .map(element => {
-        element.trim();
-        if (element) {
-          return `[${element}](https://github.com/${element})</br>`
-          ;}
-      })
-      .join("")}
-    `;
-  } else {
-    return "";
-  }
-}
-
-function renderTestSection({test}) {
-  if (test) {
-    return `## Tests<a name="tests"></a>
-    ${test}
-    `;
-  } else {
-    return "";
-  }
-}
-
-function renderContactInformation({username, confirmContact, contact}) {
-  if (confirmContact) {
-    return `via email at [${contact}](mailto:${contact})
-    `;
-  } else {
-    return `via [GitHub](https://github.com/${username})
-    `;
-  }
-}
-
-function renderContributionsSection({contribution}) {
-  if (contribution) {
-    return `## Contributing<a name="contributions"></a>
-    ${contribution}
-    `;
-  } else {
-    return "";
-  }
-}
-
+// conditional table of contents indices
 function tocFeatures({features}) {
   if (features) {
     return `* [Features](#features)
@@ -194,6 +114,18 @@ function tocContribute({contribution}) {
   }
 }
 
+// conditional features section
+function renderFeatureSection({features}) {
+  if (features) {
+    return `## Features<a name="features"></a>
+  ${features}
+    `;
+  } else {
+    return "";
+  }
+}
+
+// conditional link to deployed application and image of deployed application in usage section
 function renderLink({title, deployedLink}) {
   if (deployedLink) {
     return `[${title}]("${deployedLink}")</br>
@@ -209,6 +141,81 @@ function renderImage({title, imagePath}){
     `;
   } else {
     return "";
+  }
+}
+
+// conditional credits section
+function renderCreditsSection({creditGitHub}) {
+  if (creditGitHub) {
+    const usernameArray = creditGitHub.split(" ");
+    return `Special thanks to the following:</br>
+    ${usernameArray
+      .map(element => {
+        element.trim();
+        if (element) {
+          return `[${element}](https://github.com/${element})</br>`
+          ;}
+      })
+      .join("")}
+    `;
+  } else {
+    return "";
+  }
+}
+
+// TODO: Create a function that returns a license badge based on which license is passed in
+// If there is no license, return an empty string
+function renderLicenseBadge({license}) {
+  if (license === "None") {
+    return "";
+  } else {
+    return `[![License: ${license}](${licenseObj[license].badge})](${licenseObj[license].link})</br>
+    `;
+  }
+}
+
+// TODO: Create a function that returns the license section of README
+// If there is no license, return an empty string
+function renderLicenseSection({license}) {
+  if (license === "None") {
+    return "";
+  } else {
+    return `## License<a name="license"></a>
+  This application uses the ${licenseObj[license].name} License. For more information regarding usage, please visit [this link](${licenseObj[license].link}.)
+    `
+  }
+}
+
+// conditional tests section
+function renderTestSection({test}) {
+  if (test) {
+    return `## Tests<a name="tests"></a>
+    ${test}
+    `;
+  } else {
+    return "";
+  }
+}
+
+// conditional how to contribute section
+function renderContributionsSection({contribution}) {
+  if (contribution) {
+    return `## Contributing<a name="contributions"></a>
+    ${contribution}
+    `;
+  } else {
+    return "";
+  }
+}
+
+// conditional contact information preference
+function renderContactInformation({username, confirmContact, contact}) {
+  if (confirmContact) {
+    return `via email at [${contact}](mailto:${contact}).
+    `;
+  } else {
+    return `via [GitHub](https://github.com/${username}).
+    `;
   }
 }
 
@@ -239,11 +246,11 @@ function generateMarkdown(data) {
   ${data.usage}
   ${renderImage(data)}
   
-  ## Authors & Acknowledgements<a name="acknowledgements"></a>
+  ## Authors & Acknowledgements<a name="credits"></a>
   ${renderCreditsSection(data)}
   ${data.credit}
   
-  Made by [${data.username}](https://github.com/${data.username})
+  Made by [${data.username}](https://github.com/${data.username}).
   
   ${renderLicenseSection(data)}
   
@@ -252,7 +259,8 @@ function generateMarkdown(data) {
   ${renderContributionsSection(data)}
   
   ## Questions?<a name="questions"></a>
-  Contact repository author ${renderContactInformation(data)}
+  Contact repository author ${renderContactInformation(data)}</br>
+  ${data.detail}
   `;
 }
 
