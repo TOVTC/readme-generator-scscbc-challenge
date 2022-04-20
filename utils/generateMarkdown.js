@@ -242,8 +242,8 @@ function generateMarkdown(data) {
   ${data.install}
   
   ## Usage Information<a name="usage"></a>
-  ${renderLink(data)}
-  ${data.usage}
+  ${renderLink(data)}</br>
+  ${data.usage}</br>
   ${renderImage(data)}
   
   ## Authors & Acknowledgements<a name="credits"></a>
