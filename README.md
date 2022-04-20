@@ -36,6 +36,6 @@
   This application uses the MIT License. For more information regarding usage, please visit [this link](https://opensource.org/licenses/MIT.).
     
   ## Questions?<a name="questions"></a>
-  Contact repository author via [GitHub](https://github.com/TOVTC).
-
+  Contact repository author via email at [email@email.com](mailto:email@email.com).</br>
+  Please include the name of the repository in your email subject.
   
