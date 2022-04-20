@@ -137,7 +137,7 @@ function renderLink({title, deployedLink}) {
 
 function renderImage({title, imagePath}){
   if (imagePath) {
-    return `![${title}](${imagePath} "${title}")</br>
+    return `</br>![${title}](${imagePath} "${title}")</br>
     `;
   } else {
     return "";

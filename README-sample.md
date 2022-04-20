@@ -1,6 +1,7 @@
 
   # README Generator
   [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)</br></br>
+    
   This application uses Node.js to generate README.md files.
   
   ## Table of Contents
@@ -22,8 +23,9 @@
   After cloning the repository and installing node.js, enter "node index.js" in the terminal and answer the prompts to generate a README file. The final README will be called "README.md" and will be written to a folder called "dist" in the root directory (please ensure this directory exists in root prior to running the application).
   
   ## Usage Information<a name="usage"></a>
+  
   This template is suitable for and adaptable to most projects.</br>
-  ![README Generator](./readme-generator.png "README Generator")</br>
+  </br>![README Generator](./readme-generator.png "README Generator")</br>
     
   
   ## Authors & Acknowledgements<a name="credits"></a>
@@ -43,8 +45,8 @@
   
   
   ## Questions?<a name="questions"></a>
-  Contact repository author via email at [email@email.com](mailto:email@email.com).
-    </br>
+  Contact repository author via email at [email@email.com](mailto:email@email.com).</br>
+    
   Please include the name of the repository in your email subject.
     
   
