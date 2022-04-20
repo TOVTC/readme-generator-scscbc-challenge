@@ -181,7 +181,7 @@ function renderLicenseSection({license}) {
     return "";
   } else {
     return `## License<a name="license"></a>
-  This application uses the ${licenseObj[license].name} License. For more information regarding usage, please visit [this link](${licenseObj[license].link}.)
+  This application uses the ${licenseObj[license].name} License. For more information regarding usage, please visit [this link](${licenseObj[license].link}).
     `
   }
 }
