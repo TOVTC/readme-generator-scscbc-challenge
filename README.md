@@ -19,7 +19,7 @@
   
   ## Usage Information<a name="usage"></a>
   This template is suitable for and adaptable to most projects.</br>
-  Video walkthrough of how to use this application, [here](https://drive.google.com/drive/folders/1xqaz86GCBlmcPCVCJUf3rRhcY1qgg_3s?usp=sharing).
+  Video walkthrough of how to use this application, [here](https://drive.google.com/drive/folders/1xqaz86GCBlmcPCVCJUf3rRhcY1qgg_3s?usp=sharing).</br></br>
   ![README Generator](./readme-generator.png "README Generator")</br>
     
   ## Authors & Acknowledgements<a name="credits"></a>
