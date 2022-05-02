@@ -137,7 +137,7 @@ function renderFeatureSection({features}) {
 // conditional link to deployed application and image of deployed application in usage section
 function renderLink({title, deployedLink}) {
   if (deployedLink) {
-    return `[${title}]("${deployedLink}")</br>
+    return `[${title}](${deployedLink})</br>
     `;
   } else {
     return "";
